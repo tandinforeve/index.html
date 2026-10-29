@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Physics E-Portfolio</title>
+<style>
+  :root {
+    --navy: #10233f;
+    --blue: #2864dc;
+    --pale: #eef4ff;
+    --ink: #1d2939;
+    --muted: #667085;
+    --line: #e4e9f1;
+    --paper: #ffffff;
+    --bg: #f5f7fb;
+    --green: #16845b;
+    --red: #c0392b;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: Inter, "Segoe UI", Arial, sans-serif; background: var(--bg); color: var(--ink); }
+  button, input, textarea, select { font: inherit; }
+  button { cursor: pointer; }
+  .app { min-height: 100vh; display: grid; grid-template-columns: 250px 1fr; }
+  aside { background: var(--navy); color: white; padding: 26px 16px; display: flex; flex-direction: column; gap: 24px; }
+  .brand { padding: 0 10px; }
+  .brand-mark { width: 42px; height: 42px; border-radius: 13px; display: grid; place-items: center; background: #294c7d; font-size: 23px; margin-bottom: 14px; }
+  .brand h1 { font-size: 19px; margin: 0 0 5px; letter-spacing: -.3px; }
+  .brand p { color: #b9c9e2; font-size: 12px; margin: 0; }
+  .nav-label { color: #91a8ca; font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; padding: 0 10px; margin-bottom: 8px; }
+  .nav-button { width: 100%; border: 0; background: transparent; color: #d9e4f5; text-align: left; border-radius: 10px; padding: 12px 11px; display: flex; gap: 10px; align-items: center; margin: 3px 0; }
+  .nav-button:hover, .nav-button.active { background: #213d64; color: white; }
+  .nav-button .num { font-size: 11px; background: #345783; padding: 4px 6px; border-radius: 6px; }
+  .sidebar-note { margin-top: auto; background: #192f50; padding: 14px; border-radius: 12px; color: #c7d6eb; font-size: 12px; line-height: 1.5; }
+  main { min-width: 0; padding: 30px clamp(18px, 4vw, 48px); }
+  .topbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 26px; }
+  .eyebrow { color: var(--blue); text-transform: uppercase; letter-spacing: 1.4px; font-size: 10px; font-weight: 800; margin-bottom: 7px; }
+  h2 { margin: 0; font-size: clamp(25px, 3vw, 34px); letter-spacing: -1px; }
+  .subhead { color: var(--muted); margin: 8px 0 0; line-height: 1.5; }
+  .top-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+  .btn { border: 1px solid var(--line); background: white; color: var(--ink); border-radius: 9px; padding: 10px 13px; font-weight: 650; font-size: 13px; }
+  .btn.primary { background: var(--blue); color: white; border-color: var(--blue); }
+  .btn.danger { color: var(--red); }
+  .btn:hover { filter: brightness(.97); }
+  .hero { background: linear-gradient(120deg, #18365e, #2864dc); color: white; border-radius: 18px; padding: 26px; display: flex; justify-content: space-between; gap: 22px; align-items: center; margin-bottom: 20px; overflow: hidden; }
+  .hero h3 { font-size: 24px; margin: 0 0 9px; letter-spacing: -.5px; }
+  .hero p { color: #e1ebff; margin: 0; max-width: 580px; line-height: 1.6; font-size: 14px; }
+  .hero-symbol { font-size: 68px; opacity: .9; padding: 0 20px; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 28px; }
+  .stat, .panel, .unit-card { background: var(--paper); border: 1px solid var(--line); border-radius: 14px; }
+  .stat { padding: 17px 19px; }
+  .stat span { color: var(--muted); font-size: 12px; }
+  .stat strong { display: block; font-size: 27px; margin-top: 7px; }
+  .section-head { display: flex; justify-content: space-between; align-items: end; gap: 12px; margin: 24px 0 14px; }
+  .section-head h3 { margin: 0; font-size: 18px; }
+  .section-head p { color: var(--muted); margin: 5px 0 0; font-size: 13px; }
+  .unit-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+  .unit-card { padding: 18px; text-align: left; width: 100%; color: inherit; transition: transform .15s, border-color .15s; }
+  .unit-card:hover { transform: translateY(-2px); border-color: #a9c3f7; }
+  .unit-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
+  .unit-icon { width: 40px; height: 40px; display: grid; place-items: center; background: var(--pale); border-radius: 11px; font-size: 20px; }
+  .unit-tag { color: var(--blue); font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .7px; }
+  .unit-card h4 { margin: 0 0 8px; font-size: 16px; }
+  .unit-card p { color: var(--muted); font-size: 12px; line-height: 1.5; margin: 0 0 18px; }
+  .progress-line { height: 5px; background: #edf0f5; border-radius: 99px; overflow: hidden; }
+  .progress-line span { height: 100%; display: block; background: var(--blue); border-radius: 99px; }
+  .progress-meta { display: flex; justify-content: space-between; color: var(--muted); font-size: 10px; margin-top: 7px; }
+  .panel { padding: 22px; margin-bottom: 18px; }
+  .unit-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; margin-bottom: 22px; }
+  .unit-header h3 { font-size: 23px; margin: 0 0 7px; }
+  .unit-header p { color: var(--muted); margin: 0; font-size: 13px; line-height: 1.5; }
+  .field { display: flex; flex-direction: column; gap: 7px; margin-bottom: 16px; }
+  .field label { font-size: 12px; font-weight: 750; color: #344054; }
+  input, textarea, select { border: 1px solid #d7deea; border-radius: 9px; background: white; color: var(--ink); padding: 11px 12px; outline: none; width: 100%; }
+  input:focus, textarea:focus, select:focus { border-color: #82a8f4; box-shadow: 0 0 0 3px #eaf1ff; }
+  textarea { resize: vertical; min-height: 130px; line-height: 1.6; }
+  .small-textarea { min-height: 95px; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .entry-list { display: grid; gap: 10px; }
+  .entry { border: 1px solid var(--line); border-radius: 11px; padding: 14px; }
+  .entry-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+  .entry h4 { margin: 0 0 5px; font-size: 14px; }
+  .entry-meta { color: var(--muted); font-size: 11px; }
+  .entry-body { white-space: pre-wrap; line-height: 1.6; font-size: 13px; margin-top: 12px; overflow-wrap: anywhere; }
+  .entry-actions { display: flex; gap: 6px; }
+  .mini-btn { border: 1px solid var(--line); background: white; border-radius: 7px; padding: 6px 8px; font-size: 11px; }
+  .empty { border: 1px dashed #cbd5e1; border-radius: 12px; padding: 28px; text-align: center; color: var(--muted); font-size: 13px; line-height: 1.6; }
+  .search-row { display: flex; gap: 10px; margin-bottom: 18px; }
+  .search-row input { flex: 1; }
+  .notice { font-size: 12px; color: var(--muted); line-height: 1.5; margin-top: 10px; }
+  .toast { position: fixed; bottom: 20px; right: 20px; background: #152b4b; color: white; padding: 12px 16px; border-radius: 10px; box-shadow: 0 8px 30px #10233f30; font-size: 13px; opacity: 0; transform: translateY(8px); transition: .2s; pointer-events: none; }
+  .toast.show { opacity: 1; transform: translateY(0); }
+  footer { color: #8993a4; font-size: 11px; text-align: center; margin: 30px 0 8px; }
+  @media (max-width: 1000px) { .unit-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 720px) {
+    .app { grid-template-columns: 1fr; }
+    aside { padding: 15px; gap: 14px; }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand-mark { margin: 0; flex-shrink: 0; }
+    .brand p { display: none; }
+    .nav-wrap { display: flex; gap: 6px; overflow-x: auto; }
+    .nav-label, .sidebar-note { display: none; }
+    .nav-button { width: auto; white-space: nowrap; padding: 9px 11px; }
+    main { padding: 22px 15px; }
+    .topbar { align-items: flex-start; flex-direction: column; }
+    .hero-symbol { display: none; }
+    .stats { gap: 8px; }
+    .stat { padding: 13px; }
+    .stat strong { font-size: 22px; }
+    .unit-grid { grid-template-columns: 1fr; }
+    .two-col { grid-template-columns: 1fr; gap: 0; }
+    .unit-header { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <aside>
+    <div class="brand">
+      <div class="brand-mark">⚛</div>
+      <div><h1>Physics Portfolio</h1><p>Your learning, organised.</p></div>
+    </div>
+    <div>
+      <div class="nav-label">Workspace</div>
+      <div class="nav-wrap" id="navigation">
+        <button class="nav-button active" data-view="home">⌂ &nbsp; Dashboard</button>
+        <button class="nav-button" data-view="unit" data-unit="0"><span class="num">01</span> Unit 1</button>
+        <button class="nav-button" data-view="unit" data-unit="1"><span class="num">02</span> Unit 2</button>
+        <button class="nav-button" data-view="unit" data-unit="2"><span class="num">03</span> Unit 3</button>
+        <button class="nav-button" data-view="unit" data-unit="3"><span class="num">04</span> Unit 4</button>
+        <button class="nav-button" data-view="unit" data-unit="4"><span class="num">05</span> Unit 5</button>
+        <button class="nav-button" data-view="unit" data-unit="5"><span class="num">06</span> Unit 6</button>
+        <button class="nav-button" data-view="all">⌕ &nbsp; Search entries</button>
+      </div>
+    </div>
+    <div class="sidebar-note"><strong>Study tip</strong><br>After each lesson, add a short note and write a reflection about what you understood and what you still need to practise.</div>
+  </aside>
+  <main>
+    <div class="topbar">
+      <div>
+        <div class="eyebrow">Student learning space</div>
+        <h2 id="pageTitle">Your Physics E-Portfolio</h2>
+        <p class="subhead" id="pageSubtitle">Keep your notes, equations, and reflections in one place.</p>
+      </div>
+      <div class="top-actions">
+        <button class="btn" id="exportBtn">Export backup</button>
+        <button class="btn" id="importBtn">Import backup</button>
+        <input type="file" id="importFile" accept="application/json,.json" hidden>
+      </div>
+    </div>
+    <div id="content"></div>
+    <footer>Physics E-Portfolio · Your entries are saved in this browser on this device.</footer>
+  </main>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<script>
+const UNIT_DEFAULTS = [
+  { title: "Unit 1", name: "Unit 1 — Add your title", icon: "📐", description: "Add a short description of the topics covered in this unit." },
+  { title: "Unit 2", name: "Unit 2 — Add your title", icon: "🌊", description: "Add a short description of the topics covered in this unit." },
+  { title: "Unit 3", name: "Unit 3 — Add your title", icon: "⚡", description: "Add a short description of the topics covered in this unit." },
+  { title: "Unit 4", name: "Unit 4 — Add your title", icon: "🔭", description: "Add a short description of the topics covered in this unit." },
+  { title: "Unit 5", name: "Unit 5 — Add your title", icon: "🧲", description: "Add a short description of the topics covered in this unit." },
+  { title: "Unit 6", name: "Unit 6 — Add your title", icon: "⚛️", description: "Add a short description of the topics covered in this unit." }
+];
+const STORAGE_KEY = "physicsEPortfolio_v1";
+let data = loadData();
+let currentView = "home";
+let currentUnit = 0;
+let editing = null;
+
+function emptyData() {
+  return { units: UNIT_DEFAULTS.map(u => ({...u})), entries: [] };
+}
+function loadData() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
+    if (saved && Array.isArray(saved.units) && Array.isArray(saved.entries)) {
+      saved.units = UNIT_DEFAULTS.map((u, i) => ({...u, ...(saved.units[i] || {})}));
+      return saved;
+    }
+  } catch (e) {}
+  return emptyData();
+}
+function persist() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  render();
+}
+function toast(message) {
+  const el = document.getElementById("toast");
+  el.textContent = message;
+  el.classList.add("show");
+  clearTimeout(toast.timer);
+  toast.timer = setTimeout(() => el.classList.remove("show"), 2400);
+}
+function escapeHTML(value) {
+  return String(value ?? "").replace(/[&<>"']/g, ch => ({
+    "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
+  }[ch]));
+}
+function dateLabel(iso) {
+  try { return new Date(iso).toLocaleDateString(undefined, {year:"numeric", month:"short", day:"numeric"}); }
+  catch(e) { return ""; }
+}
+function entriesFor(unitIndex, type) {
+  return data.entries.filter(e => e.unit === unitIndex && (!type || e.type === type))
+    .sort((a,b) => new Date(b.updatedAt) - new Date(a.updatedAt));
+}
+function unitProgress(i) {
+  const entries = entriesFor(i);
+  const notes = entries.some(e => e.type === "note");
+  const reflections = entries.some(e => e.type === "reflection");
+  return (notes ? 50 : 0) + (reflections ? 50 : 0);
+}
+function setView(view, unitIndex = currentUnit) {
+  currentView = view;
+  currentUnit = Number(unitIndex) || 0;
+  editing = null;
+  document.querySelectorAll(".nav-button").forEach(b => {
+    b.classList.toggle("active", b.dataset.view === view && (view !== "unit" || Number(b.dataset.unit) === currentUnit));
+  });
+  render();
+}
+document.getElementById("navigation").addEventListener("click", e => {
+  const button = e.target.closest("button[data-view]");
+  if (!button) return;
+  setView(button.dataset.view, button.dataset.unit ?? 0);
+});
+document.getElementById("exportBtn").addEventListener("click", () => {
+  const blob = new Blob([JSON.stringify(data, null, 2)], {type:"application/json"});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url; a.download = "physics-e-portfolio-backup.json"; a.click();
+  URL.revokeObjectURL(url);
+  toast("Backup exported.");
+});
+document.getElementById("importBtn").addEventListener("click", () => document.getElementById("importFile").click());
+document.getElementById("importFile").addEventListener("change", async e => {
+  const file = e.target.files[0];
+  if (!file) return;
+  try {
+    const imported = JSON.parse(await file.text());
+    if (!Array.isArray(imported.units) || !Array.isArray(imported.entries)) throw new Error("Invalid backup");
+    if (!confirm("Import this backup and replace the portfolio currently saved in this browser?")) return;
+    data = { units: UNIT_DEFAULTS.map((u,i) => ({...u, ...(imported.units[i] || {})})), entries: imported.entries };
+    persist(); toast("Backup imported.");
+  } catch(err) { alert("Could not import this file. Please choose a valid Physics E-Portfolio JSON backup."); }
+  finally { e.target.value = ""; }
+});
+
+function render() {
+  const content = document.getElementById("content");
+  if (currentView === "home") {
+    document.getElementById("pageTitle").textContent = "Your Physics E-Portfolio";
+    document.getElementById("pageSubtitle").textContent = "Keep your notes, equations, and reflections in one place.";
+    const noteCount = data.entries.filter(e => e.type === "note").length;
+    const reflectionCount = data.entries.filter(e => e.type === "reflection").length;
+    const completed = data.units.filter((_,i) => unitProgress(i) === 100).length;
+    content.innerHTML = `
+      <section class="hero"><div><h3>Understand. Reflect. Improve.</h3><p>This is your personal space to collect important physics concepts, keep track of formulas and derivations, and reflect on your learning across six units.</p></div><div class="hero-symbol">∑</div></section>
+      <div class="stats">
+        <div class="stat"><span>Saved notes</span><strong>${noteCount}</strong></div>
+        <div class="stat"><span>Reflections</span><strong>${reflectionCount}</strong></div>
+        <div class="stat"><span>Units with notes + reflection</span><strong>${completed}/6</strong></div>
+      </div>
+      <div class="section-head"><div><h3>Your six units</h3><p>Choose a unit to add notes and reflections.</p></div></div>
+      <div class="unit-grid">${data.units.map((u,i) => {
+        const n = entriesFor(i, "note").length, r = entriesFor(i, "reflection").length, p = unitProgress(i);
+        return `<button class="unit-card" data-open-unit="${i}">
+          <div class="unit-top"><div class="unit-icon">${escapeHTML(u.icon)}</div><span class="unit-tag">UNIT ${i+1}</span></div>
+          <h4>${escapeHTML(u.name)}</h4><p>${escapeHTML(u.description)}</p>
+          <div class="progress-line"><span style="width:${p}%"></span></div>
+          <div class="progress-meta"><span>${n} notes · ${r} reflections</span><span>${p}%</span></div>
+        </button>`;
+      }).join("")}</div>
+      <div class="section-head"><div><h3>Recently updated</h3><p>Your latest notes and reflections.</p></div></div>
+      ${renderEntryList([...data.entries].sort((a,b)=>new Date(b.updatedAt)-new Date(a.updatedAt)).slice(0,3), true)}
+      <p class="notice">Privacy note: entries are saved in this browser on this device. Export a backup regularly, especially before clearing browser data.</p>`;
+    content.querySelectorAll("[data-open-unit]").forEach(b => b.addEventListener("click", () => setView("unit", b.dataset.openUnit)));
+  } else if (currentView === "unit") {
+    renderUnit(content);
+  } else {
+    document.getElementById("pageTitle").textContent = "Search your portfolio";
+    document.getElementById("pageSubtitle").textContent = "Find notes and reflections from any of your six units.";
+    content.innerHTML = `<div class="panel"><div class="search-row"><input id="searchInput" placeholder="Search titles, topics, or content…"><select id="searchType" style="max-width:170px"><option value="all">All entries</option><option value="note">Notes only</option><option value="reflection">Reflections only</option></select></div><div id="searchResults"></div></div>`;
+    const runSearch = () => {
+      const q = document.getElementById("searchInput").value.toLowerCase().trim();
+      const type = document.getElementById("searchType").value;
+      const matches = data.entries.filter(e => (type === "all" || e.type === type) &&
+        (e.title + " " + e.body + " " + data.units[e.unit].name).toLowerCase().includes(q))
+        .sort((a,b)=>new Date(b.updatedAt)-new Date(a.updatedAt));
+      document.getElementById("searchResults").innerHTML = renderEntryList(matches, true, "No matching entries yet. Try a different search.");
+      wireEntryButtons(document.getElementById("searchResults"));
+    };
+    document.getElementById("searchInput").addEventListener("input", runSearch);
+    document.getElementById("searchType").addEventListener("change", runSearch);
+    runSearch();
+  }
+}
+function renderUnit(content) {
+  const u = data.units[currentUnit];
+  document.getElementById("pageTitle").textContent = u.title;
+  document.getElementById("pageSubtitle").textContent = "Build your understanding one lesson at a time.";
+  const notes = entriesFor(currentUnit, "note");
+  const reflections = entriesFor(currentUnit, "reflection");
+  content.innerHTML = `
+    <div class="panel">
+      <div class="unit-header"><div><div class="eyebrow">Unit ${currentUnit+1} of 6</div><h3>${escapeHTML(u.name)}</h3><p>${escapeHTML(u.description)}</p></div><div class="unit-icon">${escapeHTML(u.icon)}</div></div>
+      <form id="unitSettings">
+        <div class="two-col">
+          <div class="field"><label for="unitName">Unit title</label><input id="unitName" maxlength="90" value="${escapeHTML(u.name)}" required></div>
+          <div class="field"><label for="unitIcon">Icon (emoji or symbol)</label><input id="unitIcon" maxlength="8" value="${escapeHTML(u.icon)}"></div>
+        </div>
+        <div class="field"><label for="unitDescription">What does this unit cover?</label><input id="unitDescription" maxlength="180" value="${escapeHTML(u.description)}"></div>
+        <button class="btn" type="submit">Save unit details</button>
+      </form>
+    </div>
+    <div class="panel">
+      <div class="section-head" style="margin-top:0"><div><h3>${editing && editing.unit===currentUnit && editing.type==="note" ? "Edit note" : "Add important notes"}</h3><p>Record definitions, laws, formulas, derivations, examples, and questions.</p></div></div>
+      <form id="noteForm">
+        <div class="field"><label for="noteTitle">Note title</label><input id="noteTitle" placeholder="e.g. Newton's Second Law" maxlength="120" required></div>
+        <div class="field"><label for="noteBody">Your notes</label><textarea id="noteBody" placeholder="Write your key ideas, equations, explanations, and worked examples here…" required></textarea></div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn primary" type="submit">${editing && editing.unit===currentUnit && editing.type==="note" ? "Update note" : "Save note"}</button>${editing && editing.unit===currentUnit && editing.type==="note" ? '<button class="btn" type="button" id="cancelEdit">Cancel edit</button>' : ""}</div>
+      </form>
+    </div>
+    <div class="panel">
+      <div class="section-head" style="margin-top:0"><div><h3>Important notes (${notes.length})</h3><p>Review your saved concepts and formulas.</p></div></div>
+      ${renderEntryList(notes, false, "No notes saved for this unit yet. Add your first note above.")}
+    </div>
+    <div class="panel">
+      <div class="section-head" style="margin-top:0"><div><h3>${editing && editing.unit===currentUnit && editing.type==="reflection" ? "Edit reflection" : "Learning reflection"}</h3><p>Think about what you learned and what you want to improve.</p></div></div>
+      <form id="reflectionForm">
+        <div class="field"><label for="reflectionTitle">Reflection title</label><input id="reflectionTitle" maxlength="120" placeholder="e.g. What I learned about motion" required></div>
+        <div class="field"><label for="reflectionBody">Your reflection</label><textarea id="reflectionBody" placeholder="What did I learn? What was difficult? How did I overcome it? Where can I apply this knowledge?" required></textarea></div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn primary" type="submit">${editing && editing.unit===currentUnit && editing.type==="reflection" ? "Update reflection" : "Save reflection"}</button>${editing && editing.unit===currentUnit && editing.type==="reflection" ? '<button class="btn" type="button" id="cancelEdit">Cancel edit</button>' : ""}</div>
+      </form>
+    </div>
+    <div class="panel">
+      <div class="section-head" style="margin-top:0"><div><h3>Saved reflections (${reflections.length})</h3><p>Your record of progress and questions.</p></div></div>
+      ${renderEntryList(reflections, false, "No reflections saved for this unit yet. Add one above.")}
+    </div>`;
+  document.getElementById("unitSettings").addEventListener("submit", e => {
+    e.preventDefault();
+    data.units[currentUnit].name = document.getElementById("unitName").value.trim() || `Unit ${currentUnit+1}`;
+    data.units[currentUnit].title = `Unit ${currentUnit+1}`;
+    data.units[currentUnit].icon = document.getElementById("unitIcon").value.trim() || "⚛️";
+    data.units[currentUnit].description = document.getElementById("unitDescription").value.trim() || "Add a short description of this unit.";
+    persist(); toast("Unit details saved.");
+  });
+  setupEntryForm("noteForm", "note", "noteTitle", "noteBody");
+  setupEntryForm("reflectionForm", "reflection", "reflectionTitle", "reflectionBody");
+  const cancel = document.getElementById("cancelEdit");
+  if (cancel) cancel.addEventListener("click", () => { editing = null; render(); });
+  wireEntryButtons(content);
+  if (editing && editing.unit === currentUnit) {
+    const titleId = editing.type === "note" ? "noteTitle" : "reflectionTitle";
+    const bodyId = editing.type === "note" ? "noteBody" : "reflectionBody";
+    document.getElementById(titleId).value = editing.title;
+    document.getElementById(bodyId).value = editing.body;
+    document.getElementById(titleId).focus();
+  }
+}
+function setupEntryForm(formId, type, titleId, bodyId) {
+  document.getElementById(formId).addEventListener("submit", e => {
+    e.preventDefault();
+    const title = document.getElementById(titleId).value.trim();
+    const body = document.getElementById(bodyId).value.trim();
+    if (!title || !body) return;
+    if (editing && editing.unit === currentUnit && editing.type === type) {
+      const target = data.entries.find(x => x.id === editing.id);
+      if (target) { target.title = title; target.body = body; target.updatedAt = new Date().toISOString(); }
+      editing = null;
+      persist(); toast("Entry updated.");
+    } else {
+      data.entries.push({id: makeId(), unit: currentUnit, type, title, body, createdAt: new Date().toISOString(), updatedAt: new Date().toISOString()});
+      persist(); toast(type === "note" ? "Note saved." : "Reflection saved.");
+    }
+  });
+}
+function makeId() {
+  return "e" + Date.now().toString(36) + Math.random().toString(36).slice(2,8);
+}
+function renderEntryList(entries, showUnit, emptyMessage = "Nothing here yet.") {
+  if (!entries.length) return `<div class="empty">${escapeHTML(emptyMessage)}</div>`;
+  return `<div class="entry-list">${entries.map(e => `<article class="entry">
+    <div class="entry-top"><div><h4>${escapeHTML(e.title)}</h4><div class="entry-meta">${e.type === "note" ? "Important note" : "Reflection"}${showUnit ? " · " + escapeHTML(data.units[e.unit]?.name || `Unit ${e.unit+1}`) : ""} · Updated ${dateLabel(e.updatedAt)}</div></div>
+    <div class="entry-actions"><button class="mini-btn" data-edit="${escapeHTML(e.id)}">Edit</button><button class="mini-btn" data-delete="${escapeHTML(e.id)}">Delete</button></div></div>
+    <div class="entry-body">${escapeHTML(e.body)}</div>
+  </article>`).join("")}</div>`;
+}
+function wireEntryButtons(root) {
+  root.querySelectorAll("[data-edit]").forEach(btn => btn.addEventListener("click", () => {
+    const entry = data.entries.find(e => e.id === btn.dataset.edit);
+    if (!entry) return;
+    editing = {...entry};
+    setView("unit", entry.unit);
+    setTimeout(() => {
+      const targetId = entry.type === "note" ? "noteTitle" : "reflectionTitle";
+      document.getElementById(targetId)?.scrollIntoView({behavior:"smooth", block:"center"});
+    }, 0);
+  }));
+  root.querySelectorAll("[data-delete]").forEach(btn => btn.addEventListener("click", () => {
+    const entry = data.entries.find(e => e.id === btn.dataset.delete);
+    if (!entry || !confirm(`Delete "${entry.title}"? This cannot be undone unless you have a backup.`)) return;
+    data.entries = data.entries.filter(e => e.id !== entry.id);
+    if (editing && editing.id === entry.id) editing = null;
+    persist(); toast("Entry deleted.");
+  }));
+}
+render();
+</script>
+</body>
+</html>
