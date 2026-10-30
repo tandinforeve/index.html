@@ -1,0 +1,429 @@
+{
+  "units": [
+    {
+      "title": "Unit 1",
+      "name": "Unit 1 — Photons and matter waves",
+      "icon": "📐",
+      "description": "It will cover information regarding waves and particles."
+    },
+    {
+      "title": "Unit 2",
+      "name": "Unit 2 — Waves",
+      "icon": "🌊",
+      "description": "Waves and oscillation"
+    },
+    {
+      "title": "Unit 3",
+      "name": "Unit 3 — Mechanics",
+      "icon": "⚡",
+      "description": "Motion and the force that affects motion."
+    },
+    {
+      "title": "Unit 4",
+      "name": "Unit 4 — Optics",
+      "icon": "🔭",
+      "description": "Polarization, diffraction and interference"
+    },
+    {
+      "title": "Unit 5",
+      "name": "Unit 5 — Electromagnetism and circuit analysis",
+      "icon": "🧲",
+      "description": "Deals with the study of electric field and magnetic field"
+    },
+    {
+      "title": "Unit 6",
+      "name": "Reflections",
+      "icon": "⚛️",
+      "description": "Add a short description of the topics covered in this unit."
+    }
+  ],
+  "entries": [
+    {
+      "id": "emvsc6t47w7tbld",
+      "unit": 0,
+      "type": "note",
+      "title": "Black body radiation",
+      "body": "A perfect absorber and emitter.\nDepends on temperature.\nDoes not depend on shape and chemical composition",
+      "createdAt": "2026-10-28T16:36:28.519Z",
+      "updatedAt": "2026-10-28T16:36:28.520Z"
+    },
+    {
+      "id": "emvsc8mxsip12tf",
+      "unit": 0,
+      "type": "note",
+      "title": "Stefan-Boltzmann law.",
+      "body": "Energy radiated per unit surface area of a blackbody is directly proportional to fourth power of its absolute temperature.",
+      "createdAt": "2026-10-28T16:37:53.824Z",
+      "updatedAt": "2026-10-28T16:37:53.824Z"
+    },
+    {
+      "id": "emvscdaoo0fuh5m",
+      "unit": 0,
+      "type": "note",
+      "title": "Photo-electric effect",
+      "body": "Intensity is directly proportional to photocurrent.\nConversion of light to electrical energy.",
+      "createdAt": "2026-10-28T16:41:31.224Z",
+      "updatedAt": "2026-10-28T16:41:31.224Z"
+    },
+    {
+      "id": "emvscfol1adkho4",
+      "unit": 0,
+      "type": "note",
+      "title": "Compton effect",
+      "body": "Occurs due to change in wavelength where the x-ray collides with an electron and that scatters or recoil. This causes the compton shift.\n\nFrequency of the scattered photon is less than the incident ray.\nWavelength is just the opposite.",
+      "createdAt": "2026-10-28T16:43:22.549Z",
+      "updatedAt": "2026-10-28T16:43:22.549Z"
+    },
+    {
+      "id": "emvschthbr02lbk",
+      "unit": 0,
+      "type": "note",
+      "title": "Einstein photoelectric equation",
+      "body": "Conversion of light to electric current\nwork function is the minimum energy required to eject the electron from the metal surface",
+      "createdAt": "2026-10-28T16:45:02.207Z",
+      "updatedAt": "2026-10-28T16:45:02.207Z"
+    },
+    {
+      "id": "emvscj4a3e6i8nu",
+      "unit": 0,
+      "type": "note",
+      "title": "De-Broglie Matter waves",
+      "body": "A moving particle is associated with waves\nThese are matter waves",
+      "createdAt": "2026-10-28T16:46:02.859Z",
+      "updatedAt": "2026-10-28T16:46:02.859Z"
+    },
+    {
+      "id": "emvscldqpj9jg9s",
+      "unit": 0,
+      "type": "note",
+      "title": "Double slit experiment",
+      "body": "Shows wave-particle duality\nElectromagnetic waves contain electric and magnetic field",
+      "createdAt": "2026-10-28T16:47:48.433Z",
+      "updatedAt": "2026-10-28T16:47:48.434Z"
+    },
+    {
+      "id": "emvscsz7wbnjbap",
+      "unit": 0,
+      "type": "note",
+      "title": "Heisenberg uncertainty principle",
+      "body": "Impossible to measure the position and momentum of the particle simultaneously.",
+      "createdAt": "2026-10-28T16:53:42.860Z",
+      "updatedAt": "2026-10-28T16:53:42.860Z"
+    },
+    {
+      "id": "emvscux81b3uf09",
+      "unit": 0,
+      "type": "reflection",
+      "title": "Reflections on Wave-Particle Duality and Modern Physics",
+      "body": "Studying Unit 1 helped me realize how classical physics fails to explain atomic-scale phenomena like blackbody radiation and the photoelectric effect. Understanding that light and moving particles exhibit both wave and particle characteristics was initially confusing, but breaking down key experiments—like the double-slit experiment and Compton scattering—helped bridge the gap. I still need to practice applying the formulas for Wien's displacement law and Heisenberg's uncertainty principle to numerical problems, but I feel much more confident about the core conceptual shifts in modern physics.",
+      "createdAt": "2026-10-28T16:55:13.585Z",
+      "updatedAt": "2026-10-28T16:55:13.585Z"
+    },
+    {
+      "id": "emvscz5x68d6qnq",
+      "unit": 1,
+      "type": "note",
+      "title": "Waves",
+      "body": "Oscillation is motion at a point\nwaves are oscillation occurring from one point to another",
+      "createdAt": "2026-10-28T16:58:31.482Z",
+      "updatedAt": "2026-10-28T16:58:31.482Z"
+    },
+    {
+      "id": "emvsd0yy3mtgeol",
+      "unit": 1,
+      "type": "note",
+      "title": "Motions",
+      "body": "Periodic motion repeats after regular interval:\nOscillatory and non-oscillatory.",
+      "createdAt": "2026-10-28T16:59:55.755Z",
+      "updatedAt": "2026-10-28T16:59:55.755Z"
+    },
+    {
+      "id": "emvsd3vo3mhi24s",
+      "unit": 1,
+      "type": "note",
+      "title": "Simple harmonic motion",
+      "body": "Motion of a string is along the vertical component and motion which is across the horizonal component is zero.\nGravitational forces are neglected\nrestoring force brings back the body to equilibrium",
+      "createdAt": "2026-10-28T17:02:11.475Z",
+      "updatedAt": "2026-10-28T17:02:11.475Z"
+    },
+    {
+      "id": "emvsd4yu2st3j39",
+      "unit": 1,
+      "type": "note",
+      "title": "Progressive wave",
+      "body": "Continuous disturbance that moves through a medium, transferring energy and momentum from one place to another without permanently moving the matter itself",
+      "createdAt": "2026-10-28T17:03:02.234Z",
+      "updatedAt": "2026-10-28T17:03:02.234Z"
+    },
+    {
+      "id": "emvsdbeoc8ejq3e",
+      "unit": 1,
+      "type": "note",
+      "title": "Power and intensity",
+      "body": "Power is the energy carried by the wave per unit time\nIntensity is the energy carried by the wave per unit time",
+      "createdAt": "2026-10-28T17:08:02.700Z",
+      "updatedAt": "2026-10-28T17:08:02.700Z"
+    },
+    {
+      "id": "emvtn30p04yz4fz",
+      "unit": 1,
+      "type": "note",
+      "title": "Beats",
+      "body": "Periodic variation in loudness or intensity of wave where two waves that have almost equal frequencies travel in the same direction and will superimpose.",
+      "createdAt": "2026-10-29T14:29:13.668Z",
+      "updatedAt": "2026-10-29T14:29:13.670Z"
+    },
+    {
+      "id": "emvtn4setes0h3j",
+      "unit": 1,
+      "type": "reflection",
+      "title": "Reflection on Waves & Simple Harmonic Motion",
+      "body": "In Unit 2, I developed a solid understanding of fundamental wave behaviors and oscillations. I learned how simple harmonic motion is driven by a restoring force that brings a body back toward equilibrium, and how energy and momentum transfer through progressive waves without permanently displacing the medium. I also explored key phenomena like wave interference and beats resulting from slightly differing frequencies.\n\nThe trickiest part of this unit was distinguishing clearly between energy transfer mechanisms, such as power versus intensity, as well as visualizing phase differences in SHM. To master these concepts, I drew comparison tables and worked through visual wave diagrams. Moving forward, I can apply these principles when studying sound synthesis, optics, and architectural acoustics.",
+      "createdAt": "2026-10-29T14:30:36.245Z",
+      "updatedAt": "2026-10-29T14:30:36.246Z"
+    },
+    {
+      "id": "emvtn6myfx8d0wk",
+      "unit": 2,
+      "type": "note",
+      "title": "Kinematics",
+      "body": "Deals with the study of motion without the effects of forces",
+      "createdAt": "2026-10-29T14:32:02.487Z",
+      "updatedAt": "2026-10-29T14:32:02.487Z"
+    },
+    {
+      "id": "emvtotc8d7wudxa",
+      "unit": 2,
+      "type": "note",
+      "title": "Three basic equation of kinematics",
+      "body": "velocity equation\ndisplacement equation\nvelocity displacement",
+      "createdAt": "2026-10-29T15:17:41.293Z",
+      "updatedAt": "2026-10-29T15:17:41.293Z"
+    },
+    {
+      "id": "emvtoxc9v1yjjvs",
+      "unit": 2,
+      "type": "note",
+      "title": "Reference frame and its types",
+      "body": "Position and motion are relative\nA reference point is a well-defined coordinate system that describes the position and velocity of an object's particle\nInitial frame of reference: Newtons first law is applied\nNon-initial frame of reference: Newtons first law is not applied",
+      "createdAt": "2026-10-29T15:20:47.971Z",
+      "updatedAt": "2026-10-29T15:20:47.971Z"
+    },
+    {
+      "id": "emvtozdluwo3x6w",
+      "unit": 2,
+      "type": "note",
+      "title": "Friction",
+      "body": "A contact force that opposes motion.\nOrigin: roughness, intermolecular forces.",
+      "createdAt": "2026-10-29T15:22:23.010Z",
+      "updatedAt": "2026-10-29T15:22:23.010Z"
+    },
+    {
+      "id": "emvtq5duxozxeah",
+      "unit": 4,
+      "type": "note",
+      "title": "Magnetic flux",
+      "body": "No of magnetic field lines passing through an area",
+      "createdAt": "2026-10-29T15:55:02.889Z",
+      "updatedAt": "2026-10-29T15:55:02.889Z"
+    },
+    {
+      "id": "emvtq8aj784rz81",
+      "unit": 4,
+      "type": "note",
+      "title": "Electromagnetic induction",
+      "body": "The phenomenon of inducing EMF when there is a change in the magnetic flux",
+      "createdAt": "2026-10-29T15:57:18.547Z",
+      "updatedAt": "2026-10-29T15:57:18.547Z"
+    },
+    {
+      "id": "emvtqce1eut0vgm",
+      "unit": 4,
+      "type": "note",
+      "title": "Faradays law of electromagnetc induction",
+      "body": "Faraday's first law states that when there is a change in the magnetic field lines or flux, EMF will be induced and will exist as long as the change in magnetic flux exists.\nFaraday’s second law of electromagnetic induction states that the magnitude of the induced electromotive force (EMF) in a circuit is directly proportional to the rate of change of magnetic flux linked with that circuit",
+      "createdAt": "2026-10-29T16:00:29.714Z",
+      "updatedAt": "2026-10-29T16:00:29.714Z"
+    },
+    {
+      "id": "emvtqdc1jte2edq",
+      "unit": 4,
+      "type": "note",
+      "title": "Methods to produce EMF",
+      "body": "Change in magnetic field\nChange in area\nChange in orientation",
+      "createdAt": "2026-10-29T16:01:13.783Z",
+      "updatedAt": "2026-10-29T16:01:13.783Z"
+    },
+    {
+      "id": "emvtqhireu8nm9l",
+      "unit": 4,
+      "type": "note",
+      "title": "Types of induction",
+      "body": "Self-induction: self-induction is the process where a changing electric current induces an EMF in the same coil from\nMutual induction: the process where EMF in induced in the secondary coil due to the changing EMF in the first coil.",
+      "createdAt": "2026-10-29T16:04:29.114Z",
+      "updatedAt": "2026-10-29T16:04:29.114Z"
+    },
+    {
+      "id": "emvtqk5cay9x782",
+      "unit": 4,
+      "type": "note",
+      "title": "Electromagnetic oscillation",
+      "body": "The oscillation of electric and magnetic fields that propagate at the speed of light.\nFree oscillation: Oscillates at its own natural frequency without external factors",
+      "createdAt": "2026-10-29T16:06:31.690Z",
+      "updatedAt": "2026-10-29T16:06:31.690Z"
+    },
+    {
+      "id": "emvtqm0vfd24i48",
+      "unit": 4,
+      "type": "note",
+      "title": "LCR oscillation",
+      "body": "The system oscillates at its own natural frequency without external factors\nDamped LCR oscillation: Amplitude gradually decreases with time.",
+      "createdAt": "2026-10-29T16:07:59.211Z",
+      "updatedAt": "2026-10-29T16:07:59.211Z"
+    },
+    {
+      "id": "emvtqr9x0ly5og3",
+      "unit": 3,
+      "type": "note",
+      "title": "Polarization",
+      "body": "Light travels in a single direction\nUnpolarized light will be polarized maximally at the angle of incidence\nThe tangent of polarization is equal to the refractive index of the denser medium",
+      "createdAt": "2026-10-29T16:12:04.212Z",
+      "updatedAt": "2026-10-29T16:12:04.212Z"
+    },
+    {
+      "id": "emvtqu4ppuyz8ht",
+      "unit": 3,
+      "type": "note",
+      "title": "Diffraction",
+      "body": "Bending of light\nThe distance between two consecutive elements is known as a grating element",
+      "createdAt": "2026-10-29T16:14:17.437Z",
+      "updatedAt": "2026-10-29T16:14:17.437Z"
+    },
+    {
+      "id": "emvtqwqwt061mss",
+      "unit": 3,
+      "type": "note",
+      "title": "Interference",
+      "body": "Constructive interference: When the amplitude of the two waves increases when interference takes place\nDestructive interference: When the amplitude of the two waves decreases when interference takes place",
+      "createdAt": "2026-10-29T16:16:19.517Z",
+      "updatedAt": "2026-10-29T16:16:19.517Z"
+    },
+    {
+      "id": "emvtqzc1cn12wra",
+      "unit": 3,
+      "type": "note",
+      "title": "LASER",
+      "body": "Light Amplification Stimulated Emission Radiation\nMonochromatic\nIntense light at one spot\nUni-direction \nCoherent\ncollinated",
+      "createdAt": "2026-10-29T16:18:20.208Z",
+      "updatedAt": "2026-10-29T16:18:20.208Z"
+    },
+    {
+      "id": "emvtr0epok0xwg8",
+      "unit": 3,
+      "type": "note",
+      "title": "Types",
+      "body": "stimulated absorption\nSpontaneous Emission\nStimulated Emission",
+      "createdAt": "2026-10-29T16:19:10.332Z",
+      "updatedAt": "2026-10-29T16:19:10.332Z"
+    },
+    {
+      "id": "emvtr1byetxcjrx",
+      "unit": 3,
+      "type": "reflection",
+      "title": "Reflection on Wave Optics & Lasers",
+      "body": "In Unit 4, I explored the fascinating wave nature of light through polarization, diffraction, and interference. I learned how constructive and destructive interference alter wave amplitudes, and how the bending of light around obstacles creates diffraction patterns governed by grating elements. Additionally, I studied the principles behind lasers, focusing on stimulated emission and how light amplification produces monochromatic, coherent, and unidirectional beams. Finally, I examined polarization, understanding how unpolarized light becomes polarized and how Brewster's law connects the tangent of the polarization angle to the refractive index of a denser medium.\n\nThe most challenging part of this unit was visualizing how path differences in interference grating setups lead to specific diffraction maxima. To overcome this, I drew out ray diagrams and stepped through the derivations linking grating elements to wave angles. Moving forward, I can apply these optical principles to fields like fiber-optic communications, laser technology, and precision metrology.",
+      "createdAt": "2026-10-29T16:19:53.414Z",
+      "updatedAt": "2026-10-29T16:19:53.414Z"
+    },
+    {
+      "id": "emvumgadsu299dv",
+      "unit": 2,
+      "type": "note",
+      "title": "Laws of friction",
+      "body": "Independent of the area of surface contact\nTangential to the area and opposes motion\nDirectly proportional to the normal reaction force",
+      "createdAt": "2026-10-30T06:59:19.313Z",
+      "updatedAt": "2026-10-30T06:59:19.315Z"
+    },
+    {
+      "id": "emvummcvzufck3c",
+      "unit": 2,
+      "type": "note",
+      "title": "Angle of limiting friction",
+      "body": "To obtain the equilibrium position:\nReaction force between the two objects\nHorizontal applied force\nForce due to weight/gravity",
+      "createdAt": "2026-10-30T07:04:02.495Z",
+      "updatedAt": "2026-10-30T07:04:02.495Z"
+    },
+    {
+      "id": "emvunb7c33lx7v4",
+      "unit": 2,
+      "type": "note",
+      "title": "Angle of repose",
+      "body": "The maximum angle of inclination at which an object falls due to the weight of an object",
+      "createdAt": "2026-10-30T07:23:21.699Z",
+      "updatedAt": "2026-10-30T07:23:21.699Z"
+    },
+    {
+      "id": "emvunc797az16zy",
+      "unit": 2,
+      "type": "note",
+      "title": "Air resistance",
+      "body": "Type of frictional force exerted by air on the moving object",
+      "createdAt": "2026-10-30T07:24:08.251Z",
+      "updatedAt": "2026-10-30T07:24:08.251Z"
+    },
+    {
+      "id": "emvundrddyzlt84",
+      "unit": 2,
+      "type": "note",
+      "title": "Work-energy theorem",
+      "body": "Work done by the force acting on an object is equal to the change in kinetic energy",
+      "createdAt": "2026-10-30T07:25:20.977Z",
+      "updatedAt": "2026-10-30T07:25:20.977Z"
+    },
+    {
+      "id": "emvunf0pd0iwy2v",
+      "unit": 2,
+      "type": "note",
+      "title": "Newtons law in terms of momentum",
+      "body": "The product of mass and velocity is momentum",
+      "createdAt": "2026-10-30T07:26:19.729Z",
+      "updatedAt": "2026-10-30T07:26:19.729Z"
+    },
+    {
+      "id": "emvunfuzrwwfzcn",
+      "unit": 2,
+      "type": "note",
+      "title": "The law of conservation of momentum",
+      "body": "Assumption:\nFree from friction\nNot rotating\nMoves in only one direction",
+      "createdAt": "2026-10-30T07:26:58.983Z",
+      "updatedAt": "2026-10-30T07:26:58.983Z"
+    },
+    {
+      "id": "emvunge9qszus4a",
+      "unit": 2,
+      "type": "note",
+      "title": "Impulse",
+      "body": "Change in momentum",
+      "createdAt": "2026-10-30T07:27:23.966Z",
+      "updatedAt": "2026-10-30T07:27:23.966Z"
+    },
+    {
+      "id": "emvunhc9gxu5qzm",
+      "unit": 2,
+      "type": "note",
+      "title": "Applications",
+      "body": "Motion of gravity\nMotion of a spring-mass system\nMotion against friction",
+      "createdAt": "2026-10-30T07:28:08.020Z",
+      "updatedAt": "2026-10-30T07:28:08.020Z"
+    },
+    {
+      "id": "emvunkglakf6y3s",
+      "unit": 2,
+      "type": "reflection",
+      "title": "Mechanics",
+      "body": "In this unit, I built a solid foundation in mechanics by exploring how and why objects move. I examined the core principles of kinematics, studied different types of friction (including the laws of friction and angle of repose), and understood the dynamics of reference frames. Furthermore, I dived into momentum, impulse, and the work-energy theorem, connecting theoretical laws like conservation of momentum to practical applications like spring-mass systems and motion against gravity.\n\nWhat was difficult?\n\nSome of the initial challenges involved distinguishing between inertial and non-inertial reference frames and visualizing the nuanced forces acting on an object at an angle of limiting friction. Working through complex problems involving impulse-momentum changes and energy conservation also required careful attention to detail and units.\n\nHow did I overcome it?\n\nI overcame these hurdles by breaking down each law into its core components, reviewing real-world applications, and organizing my notes systematically. Writing down precise definitions and revisiting the underlying equations helped clarify how different mechanical forces interact in a given system.\n\nWhere can I apply this knowledge?\n\nThis understanding of mechanics is essential not only for advanced physics problems but also for everyday engineering and motion analysis. Whether it is calculating forces in structural design, understanding vehicle safety dynamics (like airbags and momentum changes), or analyzing simple harmonic motion, these concepts provide a critical analytical framework for solving physical problems.",
+      "createdAt": "2026-10-30T07:30:33.598Z",
+      "updatedAt": "2026-10-30T07:30:33.598Z"
+    }
+  ]
+}
