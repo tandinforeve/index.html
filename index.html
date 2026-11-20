@@ -27,44 +27,77 @@ input[type=range]{accent-color:var(--ac);width:120px}
 button{background:var(--ink);color:#fff;border:0;padding:7px 14px;font:inherit;cursor:pointer}button:focus-visible,input:focus-visible,.pic:focus-visible{outline:3px solid var(--hi)}
 .out{font-weight:600;font-size:.92rem}
 .ref{border:1px dashed var(--mut);padding:10px 14px;margin-top:14px;font-size:.92rem}
+.q{border-top:1px solid var(--ln);padding:12px 0}.q p{margin:0 0 8px}
+.opt{display:block;width:100%;text-align:left;background:#fff;color:var(--ink);border:1px solid var(--ln);margin:5px 0}
+.opt:hover:not(:disabled){border-color:var(--ac);background:#f1f9f8}.opt:disabled{cursor:default;color:var(--ink)}
+.opt.ok{background:#d6f0ec;border-color:var(--ac)}.opt.no{background:#f8dcdb;border-color:#c0504d}
+.ex{font-size:.9rem;color:var(--mut)}
+#qs{font-weight:700;margin:12px 0}
+#top{position:fixed;right:18px;bottom:18px;background:var(--hi);color:var(--ink);font-weight:700;padding:10px 16px;border-radius:24px;box-shadow:0 2px 8px rgba(0,0,0,.25);z-index:9}
 footer{text-align:center;color:var(--mut);padding:20px 0 40px;font-size:.85rem}
 @media(max-width:600px){ol.toc{columns:1}}
-</style></head><body>
-<header><div class="w"><h1>Physics E-Portfolio</h1><p>My reflections on Mechanics: how things move, why they move, and what happens when they collide.</p></div></header>
-<div class="w">
 
-<!-- INTRODUCTION: click the box to preview a photo, or replace the box with <img src="me.jpg" alt="Me"> -->
-<section id="intro"><h2>About me</h2>
+nav#tabs{position:sticky;top:0;z-index:20;background:var(--ink);border-top:1px solid #2a3a5e;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+nav#tabs .w{display:flex;gap:4px;overflow-x:auto;scrollbar-width:thin;padding-top:8px}
+nav#tabs a{color:#b9c6dc;text-decoration:none;font-weight:600;font-size:.9rem;white-space:nowrap;padding:10px 14px;border-bottom:3px solid transparent}
+nav#tabs a:hover{color:#fff}
+nav#tabs a.on{color:#fff;border-bottom-color:var(--hi);background:rgba(255,255,255,.08)}
+nav#tabs a:focus-visible{outline:3px solid var(--hi);outline-offset:-3px}
+section.panel{display:none}section.panel.on{display:block}
+
+#cover{min-height:100vh;display:grid;place-items:center;padding:32px 18px;background:radial-gradient(circle at 20% 15%,#24396b,var(--ink) 60%)}
+#cover[hidden],#portfolio[hidden]{display:none}
+.cv{max-width:760px;width:100%;background:var(--card);border-left:8px solid var(--hi);padding:36px;box-shadow:0 12px 40px rgba(0,0,0,.35)}
+.cv .kick{margin:0 0 6px;color:var(--ac);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem}
+.cv h1{font-size:clamp(2rem,6vw,3rem);margin:0 0 8px}.cv .sub{color:var(--mut);margin:0 0 20px}
+.cv h2{border-top:1px solid var(--ln);padding-top:18px;margin:0 0 14px}
+#enter{margin-top:24px;background:var(--hi);color:var(--ink);font-weight:700;font-size:1.05rem;padding:14px 28px;border-radius:30px;box-shadow:0 3px 10px rgba(0,0,0,.25);transition:transform .15s}
+#enter:hover{transform:translateX(4px)}
+</style></head><body>
+<div id="cover"><div class="cv">
+<p class="kick">Mechanics unit &middot; Physics</p>
+<h1>Physics E-Portfolio</h1>
+<p class="sub">My reflections on Mechanics: how things move, why they move, and what happens when they collide.</p>
+<h2>About me</h2>
+<!-- click the picture box to preview a photo, or put me.jpg next to this file -->
 <div class="me">
 <label class="pic" tabindex="0" id="pic">Click to add<br>your picture<input type="file" accept="image/*" id="file" hidden></label>
-<div class="t"><p><b>Name:</b> [Your name]<br><b>Class / Year:</b> [e.g. Class XII Science]<br><b>School:</b> [Your school]</p>
-<p>[Write a short paragraph about yourself: your interests, why you chose physics, and what you hope to do after school.]</p>
-<p>This portfolio covers my unit on <b>Mechanics</b>. Each topic has a short note, a simulation to play with, and a personal comment.</p></div></div></section>
+<div class="t"><p><b>Name:</b> Tandin Gyeltshen<br><b>Class / Year:</b> BSc in Chemistry<br><b>School:</b> Sherubtse</p>
+<p>I am a reader that likes to talk on a lot of stuffs. I like to play chess, play basketball, online games and go on long refreshing walks. </p>
+<p>This portfolio covers my unit on <b>Mechanics</b>. I chose this topic because I thought it is more relatable to our lifes and be applicable. So, this is my portfolio on mechanics.</p></div></div>
+<button id="enter">Enter my portfolio &rarr;</button>
+</div></div>
+<div id="portfolio" hidden>
+<header><div class="w"><h1>Physics E-Portfolio</h1><p>My reflections on Mechanics: how things move, why they move, and what happens when they collide.</p></div></header>
+<nav id="tabs" aria-label="Subtopics"><div class="w" role="tablist"><a href="#cover" role="tab" data-t="cover">&#8962; Cover</a><a href="#contents" role="tab" data-t="contents">Contents</a><a href="#kin" role="tab" data-t="kin">Kinematics</a><a href="#frame" role="tab" data-t="frame">Frame of reference</a><a href="#fric" role="tab" data-t="fric">Friction</a><a href="#we" role="tab" data-t="we">Work-energy</a><a href="#newton" role="tab" data-t="newton">Newton & momentum</a><a href="#cons" role="tab" data-t="cons">Conservation</a><a href="#imp" role="tab" data-t="imp">Impulse</a><a href="#quiz" role="tab" data-t="quiz">Quiz</a><a href="#refl" role="tab" data-t="refl">Reflection</a></div></nav>
+<div class="w">
 
-<section id="contents"><h2>Contents</h2>
+
+
+<section class="panel" id="contents"><h2>Contents</h2>
 <ol class="toc">
 <li><a href="#kin">Kinematics</a></li><li><a href="#frame">Frame of reference</a></li>
 <li><a href="#fric">Friction and its laws</a> (limiting friction, repose, air resistance)</li>
 <li><a href="#we">Work-energy theorem</a></li><li><a href="#newton">Newton's law in terms of momentum</a></li>
 <li><a href="#cons">Conservation of momentum</a></li><li><a href="#imp">Impulse and applications</a></li>
-<li><a href="#refl">Unit reflection</a></li></ol></section>
+<li><a href="#quiz">Mechanics quiz</a></li><li><a href="#refl">Unit reflection</a></li></ol></section>
 
-<section id="kin"><h2>Kinematics</h2>
+<section class="panel" id="kin"><h2>Kinematics</h2>
 <p>Kinematics describes motion without asking what causes it. With constant acceleration: v = u + at, s = ut + ½at², v² = u² + 2as. A projectile moves at constant speed horizontally and accelerates at g vertically.</p>
 <div class="sim"><b>Projectile launcher</b>
 <div class="ctl"><label>Angle <input type="range" id="pa" min="5" max="85" value="45" data-u="°"><b></b></label><label>Speed <input type="range" id="pv" min="5" max="40" value="25" data-u=" m/s"><b></b></label><button id="pgo">Launch</button></div>
 <canvas id="c1" width="800" height="300"></canvas><div class="out" id="po"></div></div>
-<div class="ref">My comment: [Which equation did you use most? What surprised you about the 45° result?]</div></section>
+<div class="ref">My comment: I used s = ut + ½at² the most, because the height and the range of the launcher both come from it once you split the speed into horizontal and vertical parts. What surprised me about the 45° result is that it only works when the ball lands at the same height it was launched from. When I tried 30° and 60°, the ranges came out the same, because sin 2θ has the same value for angles that add up to 90°. Basketball players know this without the equation: a shot from the free-throw line needs a high arc, and a flatter, faster shot works better when the player is close to the hoop.</div></section>
 
-<section id="frame"><h2>Frame of reference</h2>
+<section class="panel" id="frame"><h2>Frame of reference</h2>
 <p>Motion is always measured relative to something. A ball thrown straight up inside a moving train goes straight up and down for a passenger, but traces a parabola for someone on the ground. Both observers are right.</p>
 <div class="sim"><b>Ball thrown up in a train</b>
 <div class="ctl"><label>Train speed <input type="range" id="fu" min="0" max="12" value="6" data-u=" m/s"><b></b></label>
 <label><input type="radio" name="fr" value="0" checked> Passenger's view</label><label><input type="radio" name="fr" value="1"> Ground view</label></div>
 <canvas id="c2" width="800" height="260"></canvas></div>
-<div class="ref">My comment: [Describe an everyday example of relative motion you have noticed.]</div></section>
+<div class="ref">My comment: When I travel on the bus on the winding road between Trashigang and Thimphu, the trees and houses seem to rush backwards, while the person sitting next to me looks perfectly still. When another bus overtakes us slowly, it looks as if it is barely moving, but to someone standing on the road both buses are moving fast. This showed me that speed has no meaning until we say what we are measuring it against.</div></section>
 
-<section id="fric"><h2>Friction and its laws</h2>
+<section class="panel" id="fric"><h2>Friction and its laws</h2>
 <p>Limiting friction is the maximum static friction, F = μN. The <b>angle of limiting friction</b> λ satisfies tan λ = μ. The <b>angle of repose</b> is the steepest slope on which a body stays at rest, and it equals λ. Air resistance grows with speed until it balances weight, giving a <b>terminal velocity</b>.</p>
 <div class="sim"><b>Block on an incline</b>
 <div class="ctl"><label>Angle <input type="range" id="ia" min="0" max="60" value="20" data-u="°"><b></b></label><label>μ <input type="range" id="im" min="0.1" max="1.2" step="0.05" value="0.5"><b></b></label></div>
@@ -72,53 +105,60 @@ footer{text-align:center;color:var(--mut);padding:20px 0 40px;font-size:.85rem}
 <div class="sim"><b>Falling with air resistance</b>
 <div class="ctl"><label>Mass <input type="range" id="am" min="0.1" max="10" step="0.1" value="1" data-u=" kg"><b></b></label><label>Drag k <input type="range" id="ak" min="0.01" max="0.5" step="0.01" value="0.1"><b></b></label></div>
 <canvas id="c4" width="800" height="240"></canvas><div class="out" id="ao"></div></div>
-<div class="ref">My comment: [Why does friction help us walk? How do parachutes use air resistance?]</div></section>
+<div class="ref">My comment: When I walk, my foot pushes backwards on the ground and static friction pushes me forwards. Without it, like on wet stones or ice in winter, my foot just slides and I cannot move forward. This is why shoes have grooves and why basketball shoes grip the court so well. A parachute has a large area, so the air resistance becomes large at a low speed. The terminal velocity √(mg/k) falls when k increases, and in my simulation, increasing the drag made the speed settle at a much lower value, which is a safe speed to land.</div></section>
 
-<section id="we"><h2>Work-energy theorem</h2>
+<section class="panel" id="we"><h2>Work-energy theorem</h2>
 <p>The net work done on a body equals its change in kinetic energy.</p>
 <div class="eq">W<sub>net</sub> = ΔKE = ½mv² − ½mu²</div>
 <div class="sim"><b>Pushing a block from rest</b>
 <div class="ctl"><label>Force <input type="range" id="wf" min="0" max="100" value="50" data-u=" N"><b></b></label><label>Distance <input type="range" id="wd" min="1" max="20" value="8" data-u=" m"><b></b></label><label>Mass <input type="range" id="wm" min="1" max="20" value="5" data-u=" kg"><b></b></label><label>μ <input type="range" id="wu" min="0" max="0.6" step="0.05" value="0.2"><b></b></label></div>
 <canvas id="c5" width="800" height="200"></canvas><div class="out" id="wo"></div></div>
-<div class="ref">My comment: [Why is the work-energy method often faster than using F = ma?]</div></section>
+<div class="ref">My comment: With F = ma I would need to find the acceleration, then the time or use another equation, before I get the final speed. With the work-energy theorem, I only need the total work done and the starting and finishing speeds, and I do not need to know the time or how the force changed along the way. It is also useful when the path is curved or the force is not constant, such as a ball sliding down a curved slide, because only the work done matters and not the shape of the path.</div></section>
 
-<section id="newton"><h2>Newton's law in terms of momentum</h2>
+<section class="panel" id="newton"><h2>Newton's law in terms of momentum</h2>
 <p>Momentum is p = mv. Newton's second law in its general form says the net force is the rate of change of momentum.</p>
 <div class="eq">F = dp/dt</div>
 <div class="sim"><b>Constant force on a cart</b>
 <div class="ctl"><label>Force <input type="range" id="nf" min="1" max="50" value="20" data-u=" N"><b></b></label><label>Mass <input type="range" id="nm" min="1" max="20" value="5" data-u=" kg"><b></b></label></div>
 <canvas id="c6" width="800" height="300"></canvas><div class="out" id="no"></div></div>
-<div class="ref">My comment: [How does this form of the law cover cases where mass changes, like a rocket?]</div></section>
+<div class="ref">My comment: F = ma only works when the mass stays the same. A rocket burns fuel and throws it out of the back, so its mass keeps decreasing. Writing the law as F = dp/dt takes care of this, because we look at the change in momentum of the whole system, and the momentum gained by the rocket is equal to the momentum carried away by the exhaust gas. That is why a rocket can speed up in empty space where there is nothing to push against. The same idea applies to a raindrop that collects more water as it falls.</div></section>
 
-<section id="cons"><h2>Law of conservation of momentum</h2>
+<section class="panel" id="cons"><h2>Law of conservation of momentum</h2>
 <p>If no external force acts on a system, its total momentum stays constant. Elastic collisions (e = 1) also conserve kinetic energy. Perfectly inelastic collisions (e = 0) make the bodies stick together.</p>
 <div class="sim"><b>Two-cart collision</b>
 <div class="ctl"><label>m₁ <input type="range" id="m1" min="1" max="10" value="4" data-u=" kg"><b></b></label><label>v₁ <input type="range" id="v1" min="-5" max="8" value="5" data-u=" m/s"><b></b></label><label>m₂ <input type="range" id="m2" min="1" max="10" value="2" data-u=" kg"><b></b></label><label>v₂ <input type="range" id="v2" min="-8" max="5" value="-2" data-u=" m/s"><b></b></label><label>e <input type="range" id="ce" min="0" max="1" step="0.05" value="1"><b></b></label><button id="crs">Replay</button></div>
 <canvas id="c7" width="800" height="180"></canvas><div class="out" id="co"></div></div>
-<div class="ref">My comment: [Where did the "lost" kinetic energy go in the inelastic case?]</div></section>
+<div class="ref">My comment: The kinetic energy is not destroyed, it is changed into other forms. When the carts stick together, some energy becomes heat, sound and the work done in deforming the carts. Momentum is still conserved, since no external force acts on the system, but kinetic energy is not. As a chemistry student, I find this interesting because it is similar to colliding molecules. In a gas the collisions are almost elastic, so the molecules keep their energy, but in a reaction some collision energy can go into breaking and forming bonds.</div></section>
 
-<section id="imp"><h2>Impulse and applications</h2>
+<section class="panel" id="imp"><h2>Impulse and applications</h2>
 <p>Impulse is force times the time it acts, and it equals the change in momentum. It is the area under a force-time graph.</p>
 <div class="eq">J = F<sub>avg</sub>Δt = Δp = m(v − u)</div>
 <div class="sim"><b>Ball hitting a wall</b>
 <div class="ctl"><label>Mass <input type="range" id="jm" min="0.05" max="0.5" step="0.05" value="0.15" data-u=" kg"><b></b></label><label>Speed <input type="range" id="jv" min="5" max="40" value="20" data-u=" m/s"><b></b></label><label>Contact time <input type="range" id="jt" min="1" max="50" value="5" data-u=" ms"><b></b></label><label>Bounce e <input type="range" id="je" min="0" max="1" step="0.1" value="0.5"><b></b></label></div>
 <canvas id="c8" width="800" height="240"></canvas><div class="out" id="jo"></div></div>
 <p><b>Applications:</b> airbags and crumple zones lengthen the stopping time, which lowers the force. A cricketer pulls the hands back while catching, and bending your knees when landing does the same job. A golf club or bat does the opposite: a short, hard contact gives a large force.</p>
-<div class="ref">My comment: [Which application is most meaningful to you, and why?]</div></section>
+<div class="ref">My comment: The one that means the most to me is seat belts and airbags, because it connects to the roads in Bhutan, which have many sharp bends and steep drops. In a crash the change in momentum of the passenger is fixed, but a seat belt that stretches a little and an airbag that squashes make the stopping time longer, so the average force on the body becomes smaller (F = Δp/Δt). I also see it when I play basketball. When I catch a fast pass, I bring my hands back with the ball, and when I land from a jump I bend my knees. Both make the stopping time longer and protect my fingers and knees.</div></section>
 
-<section id="refl"><h2>Unit reflection</h2>
+<section class="panel" id="quiz"><h2>Mechanics quiz</h2>
+<p>Test yourself on the whole unit. Pick an answer to see right away whether it is correct and why.</p>
+<div id="qs"></div><div id="qbox"></div><button id="qreset">Try again</button></section>
+
+<section class="panel" id="refl"><h2>Unit reflection</h2>
 <div contenteditable="true" spellcheck="true">
-<p><b>What I learned.</b> In this unit I moved from simply describing motion in kinematics to explaining it with forces, energy and momentum. I now see these ideas as connected: the work-energy theorem and the impulse-momentum theorem are both consequences of Newton's laws. [Add your own words.]</p>
-<p><b>What was challenging.</b> [e.g. choosing the right frame of reference, signs of velocity in collisions, or telling static from kinetic friction.]</p>
+<p><b>What I learned.</b> In this unit I moved from simply describing motion in kinematics to explaining it with forces, energy and momentum. I now see these ideas as connected: the work-energy theorem and the impulse-momentum theorem are both consequences of Newton's laws. Learning them helped me understand how forces work in a much better way than before</p>
+<p><b>What was challenging.</b> The hardest part was the signs of the velocities in collisions. At first I got wrong answers because I forgot that a cart moving to the left has a negative velocity, and the momentum before and after did not match. The simulation helped, because I could set v₂ to a negative value and see the answer change. I also found it difficult to decide between the work-energy method and the equations of motion, and I learned that it is easier when the question has no time in it.</p>
 <p><b>What the simulations taught me.</b> Changing one variable at a time showed me things equations alone did not, such as how the angle of repose depends only on μ, and how a longer contact time reduces force without changing impulse.</p>
-<p><b>Real-life connections and next steps.</b> [Sport, road safety, engineering. Say what you will study next and how you will improve.]</p></div></section>
+<p><b>Real-life connections and next steps.</b> Mechanics now appears everywhere I look. In basketball, the angle and speed of a shot are projectile motion, and following through on a pass or a catch is impulse. On the road, seat belts, crumple zones and the stopping distance of a vehicle on a wet road depend on momentum, energy and friction. In engineering, bridges and buildings must handle forces and friction, and in chemistry, collision ideas explain gas pressure and reaction rates. Next I want to study circular motion and gravitation, then rotational motion, because I think they build on the same ideas. To improve, I will practise more numerical problems, draw a clear diagram with the directions of forces and velocities before I calculate, and check my answers using both momentum and energy where possible.</p></div></section>
 </div>
-<footer>Physics E-Portfolio · Mechanics · [Your name]</footer>
+<footer>Physics E-Portfolio · Mechanics · Tandin Gyeltshen</footer>
+</div>
 
+<button id="top" aria-label="Back to top" hidden>↑ Top</button>
 <script>
 const $=i=>document.getElementById(i),g=9.8,v=i=>+$(i).value;
 document.querySelectorAll('input[type=range]').forEach(i=>{const o=i.nextElementSibling,u=()=>o.textContent=i.value+(i.dataset.u||'');i.addEventListener('input',u);u()});
 $('file').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{$('pic').innerHTML='<img alt="My picture" src="'+r.result+'">'};r.readAsDataURL(f)};
+const mi=new Image();mi.onload=()=>{$('pic').innerHTML='<img alt="My picture" src="me.jpg">'};mi.src='me.jpg';
 $('pic').onkeydown=e=>{if(e.key=='Enter')$('file').click()};
 const C=n=>{const c=$('c'+n);return[c,c.getContext('2d'),c.width,c.height]};
 function dot(x,x1,y,r,col){x.fillStyle=col;x.beginPath();x.arc(y===undefined?0:x1,y,r,0,7);x.fill()}
@@ -184,6 +224,45 @@ x.clearRect(0,0,W,H);x.strokeStyle='#8aa';x.beginPath();x.moveTo(gx,gy-gh);x.lin
 x.fillStyle='rgba(11,122,117,.25)';x.strokeStyle=ac;x.lineWidth=2;x.beginPath();x.moveTo(gx,gy);x.lineTo(gx+wd/2,gy-gh*Fp/Fmax);x.lineTo(gx+wd,gy);x.closePath();x.fill();x.stroke();x.lineWidth=1;
 txt(x,'Force (N)',gx+6,gy-gh+12);txt(x,'time: 0 to 50 ms',gx+gw-120,gy+20);
 $('jo').textContent=`Impulse = Δp = ${J.toFixed(2)} N s (area of triangle) | Average force = ${Fa.toFixed(0)} N | Peak force = ${Fp.toFixed(0)} N`});
+// quiz
+const QZ=[
+["At what launch angle is the range greatest on level ground (no air resistance)?",["30°","45°","60°","90°"],1,"Range = u² sin 2θ / g is largest when sin 2θ = 1, so θ = 45°."],
+["A passenger on a train moving at constant velocity throws a ball straight up. Where does it land, as the passenger sees it?",["Behind them","Ahead of them","Back in their hands","It depends on the train's speed"],2,"In the train's frame there is no horizontal motion, so the ball goes straight up and down. The ground observer sees a parabola."],
+["The angle of repose of a surface equals:",["sin⁻¹ μ","cos⁻¹ μ","tan⁻¹ μ","μ"],2,"At the limit, mg sin θ = μ mg cos θ, so tan θ = μ. This is also the angle of limiting friction."],
+["A falling object reaches terminal velocity when:",["Gravity stops acting","Air resistance equals its weight","Its mass decreases","Its acceleration is g"],1,"At terminal velocity the drag force balances the weight, so the net force and acceleration are zero."],
+["According to the work-energy theorem, net work done on a body equals its change in:",["Potential energy","Momentum","Kinetic energy","Velocity"],2,"W(net) = ΔKE = ½mv² − ½mu²."],
+["A net work of 25 J is done on a 2 kg object starting from rest. Its final speed is:",["2.5 m/s","5 m/s","12.5 m/s","25 m/s"],1,"25 = ½(2)v², so v² = 25 and v = 5 m/s."],
+["Newton's second law in terms of momentum is:",["F = mv","F = dp/dt","F = p × t","F = Δv / t"],1,"Net force is the rate of change of momentum, F = dp/dt. It reduces to F = ma when mass is constant."],
+["A 2 kg trolley moving at 3 m/s hits a stationary 1 kg trolley and they stick together. Their speed afterwards is:",["1 m/s","2 m/s","3 m/s","4.5 m/s"],1,"Momentum is conserved: 2 × 3 = (2 + 1)v, so v = 2 m/s."],
+["Impulse is equal to:",["Force × distance","Mass × acceleration","The area under a force-time graph","Change in kinetic energy"],2,"Impulse J = FΔt, the area under the F–t graph, and it equals the change in momentum."],
+["Why do airbags reduce injury in a crash?",["They reduce the change in momentum","They increase the stopping time, lowering the force","They increase the car's mass","They remove friction"],1,"The change in momentum is fixed. A longer stopping time means a smaller average force, since F = Δp/Δt."]];
+let sc=0,an=0;
+function qs(){$('qs').textContent=an<QZ.length?`Score: ${sc} correct out of ${an} answered (${QZ.length} questions)`:`Final score: ${sc} / ${QZ.length}. `+(sc>=9?'Excellent work.':sc>=6?'Good. Review the topics you missed.':'Revisit the notes and simulations, then try again.')}
+function qbuild(){sc=an=0;const qb=$('qbox');qb.innerHTML='';QZ.forEach((q,i)=>{const f=document.createElement('div'),ex=document.createElement('p');f.className='q';ex.className='ex';ex.hidden=true;
+f.innerHTML='<p><b>'+(i+1)+'.</b> '+q[0]+'</p>';
+q[1].forEach((o,j)=>{const b=document.createElement('button');b.className='opt';b.textContent=o;
+b.onclick=()=>{f.querySelectorAll('.opt').forEach((x,k)=>{x.disabled=true;if(k==q[2])x.classList.add('ok')});if(j!=q[2])b.classList.add('no');else sc++;an++;ex.textContent=(j==q[2]?'Correct. ':'Not quite. ')+q[3];ex.hidden=false;qs()};f.appendChild(b)});
+f.appendChild(ex);qb.appendChild(f)});qs()}
+$('qreset').onclick=()=>{qbuild();scrollTo(0,0)};qbuild();
+
+// cover + tabs (click handlers, so they work even where #links are blocked, e.g. previews)
+const COVER=$('cover'),PORT=$('portfolio'),TABS=[...document.querySelectorAll('#tabs a')],PANELS=[...document.querySelectorAll('section.panel')];
+const setHash=h=>{try{history.replaceState(null,'','#'+h)}catch(e){}};
+function showCover(){PORT.hidden=true;COVER.hidden=false;setHash('cover');scrollTo(0,0);$('enter').focus({preventScroll:true})}
+function showTab(id){const k=PANELS.some(p=>p.id==id)?id:'contents';COVER.hidden=true;PORT.hidden=false;
+PANELS.forEach(p=>p.classList.toggle('on',p.id==k));
+TABS.forEach(a=>{const on=a.dataset.t==k;a.classList.toggle('on',on);a.setAttribute('aria-selected',on);if(on)a.scrollIntoView({block:'nearest',inline:'center'})});
+setHash(k);scrollTo(0,0)}
+$('enter').onclick=()=>showTab('contents');
+document.querySelectorAll('a[href^="#"]').forEach(a=>{const id=a.getAttribute('href').slice(1);
+if(id=='cover')a.addEventListener('click',e=>{e.preventDefault();showCover()});
+else if(PANELS.some(p=>p.id==id))a.addEventListener('click',e=>{e.preventDefault();showTab(id)})});
+const route=()=>{const h=location.hash.slice(1);PANELS.some(p=>p.id==h)?showTab(h):showCover()};
+addEventListener('hashchange',route);route();
+// back to top
+const tb=$('top');addEventListener('scroll',()=>{tb.hidden=scrollY<400||!COVER.hidden},{passive:true});
+tb.onclick=()=>scrollTo({top:0,behavior:reduce0?'auto':'smooth'});
+const reduce0=matchMedia('(prefers-reduced-motion: reduce)').matches;
 let last=0;const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 function run(ts){const dt=Math.min((ts-last)/1000||0,.05);last=ts;T+=reduce?0:dt;loops.forEach(f=>f(dt));requestAnimationFrame(run)}
 requestAnimationFrame(run);
