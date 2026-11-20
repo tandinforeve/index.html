@@ -59,7 +59,7 @@ section.panel{display:none}section.panel.on{display:block}
 <h1>Physics E-Portfolio</h1>
 <p class="sub">My reflections on Mechanics: how things move, why they move, and what happens when they collide.</p>
 <h2>About me</h2>
-<!-- click the picture box to preview a photo, or put me.jpg next to this file -->
+<!-- click the picture box to preview a photo, or put Tandin.jpg next to this file -->
 <div class="me">
 <label class="pic" tabindex="0" id="pic">Click to add<br>your picture<input type="file" accept="image/*" id="file" hidden></label>
 <div class="t"><p><b>Name:</b> Tandin Gyeltshen<br><b>Class / Year:</b> BSc in Chemistry<br><b>School:</b> Sherubtse</p>
@@ -158,7 +158,7 @@ section.panel{display:none}section.panel.on{display:block}
 const $=i=>document.getElementById(i),g=9.8,v=i=>+$(i).value;
 document.querySelectorAll('input[type=range]').forEach(i=>{const o=i.nextElementSibling,u=()=>o.textContent=i.value+(i.dataset.u||'');i.addEventListener('input',u);u()});
 $('file').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{$('pic').innerHTML='<img alt="My picture" src="'+r.result+'">'};r.readAsDataURL(f)};
-const mi=new Image();mi.onload=()=>{$('pic').innerHTML='<img alt="My picture" src="me.jpg">'};mi.src='me.jpg';
+const mi=new Image();mi.onload=()=>{$('pic').innerHTML='<img alt="My picture" src="Tandin.jpg">'};mi.src='Tandin.jpg';
 $('pic').onkeydown=e=>{if(e.key=='Enter')$('file').click()};
 const C=n=>{const c=$('c'+n);return[c,c.getContext('2d'),c.width,c.height]};
 function dot(x,x1,y,r,col){x.fillStyle=col;x.beginPath();x.arc(y===undefined?0:x1,y,r,0,7);x.fill()}
